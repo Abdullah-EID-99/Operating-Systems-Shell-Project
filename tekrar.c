@@ -9,15 +9,17 @@ int length(char* str){
     return counter;
 }
 
-int wordCount(char** str){
+int wordsCount(char** str){
     int counter = 0;
     while(*(str+counter) != NULL){
         counter++;
     }
     return counter;
 }
-int countOfChar(char* str,char c,int len){
-    int i,counter = 0;
+int charCount(char* str,char c){
+    int i,counter,len;
+    counter = 0;
+    len = length(str);
     for(i=0;i<len;i++){
         if(*(str+i) == c){
             counter +=1;
@@ -29,7 +31,7 @@ char** split(char* str, char c){
     int i,j,index,wordLength;
     int start = 0;
     int len = length(str);//lenght of string
-    int countOfStrings = countOfChar(str,c,len) + 1;
+    int countOfStrings = charCount(str,c) + 1;
     char **words = (char**) malloc(countOfStrings * sizeof(char *));
     int indexOfWord = 0;
     char* temp;
@@ -65,12 +67,12 @@ int main()
     int i;
     
     char** words=split(str, ' ');
-    int wc = wordCount(words);
+    int wc = wordsCount(words);
      for(i = 0; i < wc;i++){
             printf("words[%d] = %s\n", i,*(words+i));
         }
         
-        printf("successful = %d\n",countOfChar("sdfdsfsss",'s',9));
+        printf("successful = %d\n",charCount("111 111 111 22 aaaaaa",'a'));
     
     
     
