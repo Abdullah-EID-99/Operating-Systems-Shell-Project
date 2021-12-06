@@ -1,8 +1,9 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 int main(int argc, char *argv[], char** envp){
-    int a = atoi(argv[0]);
-    int b = atoi(argv[1]);
-    int sonuc = a-b;
+    char s[10];
+    sprintf(s,"%dl",atoi(argv[1])-atoi(argv[2]));
+    write(4, s, strlen(s));
     
 }
