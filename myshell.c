@@ -1,4 +1,4 @@
-v#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -14,7 +14,6 @@ int hasOr(char*, char);
 
 int main(int argc, char *argv[], char** envp){
     int bexit;
-    char* newargv[3];
     char str[50];
     char temp[50];
      printf("myshell>> ");
@@ -183,4 +182,33 @@ int control(char** words, int wordCount, char** envp){
 
 }
 
+/*
+            if (k > 0) {
+                h = wait(&status);
+            } else {
+                newargv[0]=*(words+2);
+                newargv[1]=*(words+1);
+                newargv[2]=NULL;
+                i=execve("tekrar", newargv, envp);
+                perror("error\n");
+                exit(1);
+            }
 
+
+
+if(hasOr(temp,'|')){
+            printf("orrrrrrrrr\n");
+            char **orWords =(char**) malloc(4* sizeof(char *));   
+            int i,x=0;
+            for(i=0;i<wordCount;i++){
+                printf("%d %s\n",i,words[i] );
+                if(strcmp("|",words[i]) == 0){
+                    printf("||\n");
+                    control(orWords, wordCount, envp);
+                    x=0;    
+                    continue;          
+                } 
+                orWords[x++]=words[i];
+            }  
+        }
+*/
