@@ -2,6 +2,18 @@
 #include <string.h>
 
 int main(int argc, char *argv[], char** envp){
+    char* oprationName = argv[0];
+    //int a = atoi(argv[1]);
+    //int b = atoi(argv[2]);
+    if(strcmp("topla",oprationName) != 0 && strcmp("cikar",oprationName) != 0){
+         printf("'%s' tanimli bir islem degildir. topla veya cikar islemlerini deneyebilirsiniz.\n",oprationName);
+        return 0;
+    }
+    if(argv[1][0]<48 || argv[1][0]>57 ||argv[2][0]<48 || argv[2][0]>57){
+        printf("topla ve cikar islemlerinde sadece sayilar kullanilir.\nTekara deneyiniz.\n");
+    return 0;
+    }
+    
     int pipefd[2];
     int pid;
     char s[10];
@@ -11,9 +23,6 @@ int main(int argc, char *argv[], char** envp){
        exit(1);
     }
 
-    char* oprationName = argv[0];
-    //int a = atoi(argv[1]);
-    //int b = atoi(argv[2]);
     if(strcmp("topla",oprationName) == 0){
         //printf("%d + %d = %d\n", a, b, a+b);
       pid = fork();
@@ -53,9 +62,6 @@ int main(int argc, char *argv[], char** envp){
         printf("\n");
       }
     }
-    
-
-      
-      
-    
+          
+    return 0;
 }
