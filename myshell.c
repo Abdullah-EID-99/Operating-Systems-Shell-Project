@@ -131,11 +131,7 @@ int control(char** words, int wordCount, char** envp){
             int i, pid;
 
             pid = fork();
-            if (pid > 0) {
-                wait(&i);
-            } 
-            else{
-            //if (pid == 0) {
+            if (pid == 0) {
                 newargv[0]=*(words+2);
                 newargv[1]=*(words+1);
                 newargv[2]=NULL;
@@ -210,5 +206,5 @@ if(hasOr(temp,'|')){
                 } 
                 orWords[x++]=words[i];
             }  
-        }
+        }//////
 */
